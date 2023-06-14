@@ -1,0 +1,15 @@
+var score = Math.floor(Math.random() * (97 - 80 + 1)) + 80;
+window.opener.scorm.set("cmi.score.raw", score);
+var minDuration = 2 * 60 + 30;
+var maxDuration = 5 * 60 + 30;
+var duration = Math.floor(Math.random() * (maxDuration - minDuration + 1)) + minDuration;
+var hours = Math.floor(duration / 60);
+var minutes = duration % 60;
+var timeString = "PT" + hours + "H" + minutes + "M";
+window.opener.scorm.set("cmi.session_time", timeString);
+window.opener.scorm.set("cmi.completion_status", "completed");
+window.opener.scorm.set("cmi.success_status", "passed");
+window.opener.scorm.set("cmi.score.raw", 90);\
+window.opener.scorm.set("cmi.score.scaled", 0.9);
+window.opener.scorm.commit();
+window.close();
